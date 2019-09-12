@@ -1,26 +1,27 @@
-import HtmlWebpackplugin from "html-webpack-plugin";
-import { CleanWebpackPlugin } from "clean-webpack-plugin";
+/* eslint-disable no-undef */
+//import HtmlWebpackplugin from "html-webpack-plugin";
+//import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import path from "path";
 
 export default {
-  mode: "development",
-  entry: "./src/index.js",
+  context: path.resolve("js"),
+  entry: ["@babel/polyfill", "./index.js"],
   output: {
-    path: path.resolve(__dirname, "dist"),
-    publicPath: "/",
+    path: path.resolve(__dirname, "builds/js"),
+    publicPath: "/src/assets/",
     filename: "bundle.js"
   },
   devtool: "inline-source-map",
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackplugin({
-      template: "src/index.html"
-    })
-  ],
+  mode: "development",
+  plugins: [],
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_module/, use: ["babel-loader"] },
-      { test: /\.css$/, use: ["style", "css"] }
+      {
+        test: /\.css$/,
+        exclude: /node_module/,
+        use: ["style-loader", "css-loader"]
+      }
     ]
   }
 };
