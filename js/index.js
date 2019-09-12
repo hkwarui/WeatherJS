@@ -1,6 +1,7 @@
 import { UI } from "./ui.js";
 import { Weather } from "./weather";
 import { Storage } from "./storage";
+require("../css/style.css");
 
 const ui = new UI();
 const storage = new Storage();
