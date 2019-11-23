@@ -2,9 +2,7 @@ import { UI } from "./ui.js";
 import { Weather } from "./weather";
 import { Storage } from "./storage";
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/style.css";
-import "bootstrap/dist/js/bootstrap.js";
 
 const ui = new UI();
 const storage = new Storage();

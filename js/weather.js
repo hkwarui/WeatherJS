@@ -10,7 +10,7 @@ class Weather {
       `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${this.apikey}`
     );
     const responseData = await response.json();
-
+    console.log(responseData);
     return responseData;
   }
 
